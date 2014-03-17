@@ -21,9 +21,11 @@ To add the GitHub repository to your Eclipse IDE, use the following instructions
 * Copy the following URL to your clipboard: <git://github.com/Codecenter/courses-spring-framework.git>
 * Right-click on the Git Repositories view and select Paste Repository Path or URI
 * A dialog opens where URL, Host, Repository path and Protocol are already set. Click Next, Next and Finish.
-* Right-click the project courses-spring-framework and select Import.
+* Right-click Working Directory under courses-spring-framework and select Copy Path to Clipboard.
+* Start the import process (File > Import)
 * Under Maven, select Existing Maven Projects and click Next.  
-* Use Select All to check all projects and perform the import by clicking Finish.
+* Paste the path from clipboard to Root Directory and check project(s) to import.
+* Perform the import by clicking Finish.
 
 After a while you should have all the sample projects available inside Eclipse.
 
