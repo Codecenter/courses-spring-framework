@@ -26,3 +26,12 @@ To add the GitHub repository to your Eclipse IDE, use the following instructions
 * Use Select All to check all projects and perform the import by clicking Finish.
 
 After a while you should have all the sample projects available inside Eclipse.
+
+Useful Resources
+----------------
+
+* [Spring documentation](http://spring.io/docs)
+* [Java 7 SE API](http://docs.oracle.com/javase/7/docs/api/)
+* [Java EE 7 API](http://docs.oracle.com/javaee/7/api/)
+* [JUnit API](http://junit.org/javadoc/latest/)
+
