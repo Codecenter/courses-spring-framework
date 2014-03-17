@@ -67,15 +67,15 @@ Exercise 5
 
 The project template for the exercise contains the following classes and interfaces:
 
-* `exercise5dao.AuthorDAO`
-* `exercise5dao.BookDAO`
-* `exercise5dao.jdbc.JDBCAuthorDAO`
-* `exercise5dao.jdbc.JDBCBookDAO`
-* `exercise5model.Author`
-* `exercise5model.Book`
-* `exercise5services.LibraryException`
-* `exercise5services.LibraryService`
-* `exercise5services.impl.LibraryServiceImpl`
+* `exercise5.dao.AuthorDAO`
+* `exercise5.dao.BookDAO`
+* `exercise5.dao.jdbc.JDBCAuthorDAO`
+* `exercise5.dao.jdbc.JDBCBookDAO`
+* `exercise5.model.Author`
+* `exercise5.model.Book`
+* `exercise5.services.LibraryException`
+* `exercise5.services.LibraryService`
+* `exercise5.services.impl.LibraryServiceImpl`
 
 Familiarize yourself with the classes, their contents and the interfaces they implement as next you will use them to populate a Spring container.
 
