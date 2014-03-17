@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:util="http://www.springframework.org/schema/util"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+							http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/util 
+							http://www.springframework.org/schema/util/spring-util.xsd">
+	<bean id="libraryService" class="exercise5.services.impl.LibraryServiceImpl">
+	    <constructor-arg>
+	        <bean class="exercise5.dao.jdbc.JDBCBookDAO">
+	        </bean>
+	    </constructor-arg>
+	    <property name="authorDAO" ref="authorDAO" />
+	    <property name="maxLoanPeriodInDays" value="30" />
+	</bean>
+	
+	<bean id="authorDAO" class="exercise5.dao.jdbc.JDBCAuthorDAO">
+	</bean>
+</beans>
