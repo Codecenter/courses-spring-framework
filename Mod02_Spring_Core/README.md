@@ -67,19 +67,19 @@ Exercise 5
 
 The project template for the exercise contains the following classes and interfaces:
 
-* `fi.codecenter.library.dao.AuthorDAO`
-* `fi.codecenter.library.dao.BookDAO`
-* `fi.codecenter.library.dao.jdbc.JDBCAuthorDAO`
-* `fi.codecenter.library.dao.jdbc.JDBCBookDAO`
-* `fi.codecenter.library.model.Author`
-* `fi.codecenter.library.model.Book`
-* `fi.codecenter.library.services.LibraryException`
-* `fi.codecenter.library.services.LibraryService`
-* `fi.codecenter.library.services.impl.LibraryServiceImpl`
+* `exercise5dao.AuthorDAO`
+* `exercise5dao.BookDAO`
+* `exercise5dao.jdbc.JDBCAuthorDAO`
+* `exercise5dao.jdbc.JDBCBookDAO`
+* `exercise5model.Author`
+* `exercise5model.Book`
+* `exercise5services.LibraryException`
+* `exercise5services.LibraryService`
+* `exercise5services.impl.LibraryServiceImpl`
 
 Familiarize yourself with the classes, their contents and the interfaces they implement as next you will use them to populate a Spring container.
 
-Under `src/test/resources` you can find an empty Spring configuration file `exercise5/TestClient-context.xml`. Configure the implementation for the interface `fi.codecenter.library.services.LibraryService` as a bean in the Spring container. Make sure you include everything that the bean requires.
+Under `src/test/resources` you can find an empty Spring configuration file `exercise5/TestClient-context.xml`. Configure the implementation for the interface `exercise5services.LibraryService` as a bean in the Spring container. Make sure you include everything that the bean requires.
 
 Under `src/test/java` you can find class `exercise5.TestClient` containing some JUnit test cases. Run the tests to verify that you have successfully configured the beans.
 
