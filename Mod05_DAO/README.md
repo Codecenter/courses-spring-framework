@@ -5,7 +5,7 @@ Exercise 1
 
 This exercise contains a simple database application for managing blog posts. 
 
-![UML structure of the blog application.](https://github.com/Codecenter/courses-spring-framework/blob/master/Mod05_DAO/uml.png)
+![UML structure of the blog application.](https://raw.githubusercontent.com/Codecenter/courses-spring-framework/master/Mod05_DAO/uml.png)
 
 The main application class is `exercise1.BlogConsole`. It provides a simple console UI for the interface `blog.services.BlogService`. `blog.services.impl.BlogServiceImpl` implements the interface and uses `blog.dao.BlogPostDAO` for interacting the database.
 
