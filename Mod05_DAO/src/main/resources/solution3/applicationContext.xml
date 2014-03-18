@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+							http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/jdbc
+							http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+							http://www.springframework.org/schema/aop 
+							http://www.springframework.org/schema/aop/spring-aop.xsd
+							http://www.springframework.org/schema/tx
+							http://www.springframework.org/schema/tx/spring-tx.xsd">	
+	<bean id="blogPostDAO" class="solution1.SpringJdbcBlogPostDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>	
+
+<!--
+	<bean id="blogPostDAO" class="blog.dao.jdbc.JdbcBlogPostDAO">
+		<constructor-arg ref="dataSource" />
+	</bean>	
+-->
+
+	<bean id="blogService" class="blog.services.impl.BlogServiceImpl">
+		<property name="blogPostDAO" ref="blogPostDAO" />
+	</bean>
+
+	<!-- Initialize HSQLDB as embedded database -->
+	<jdbc:embedded-database id="dataSource" type="HSQL">
+  		<jdbc:script location="classpath:hsqldb-schema.sql"/>
+  	</jdbc:embedded-database>
+	
+	<!-- External database access 
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	    When using PostgreSQL: 
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost/blog" />
+
+	    When using MySQL: 
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost/blog" />
+		
+		When using SQL Server: 
+		<property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver" />
+		<property name="url" value="jdbc:jtds:sqlserver://localhost/blog" />
+		
+		<property name="username" value="blog" />
+		<property name="password" value="blog" />
+	</bean>
+-->
+	
+	<!-- Local or distributed transactions? -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- XML configuration for container-managed transactions: -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="this(blog.services.BlogService)" />
+	</aop:config>
+
+	<!-- Use @Transactional instead of XML above:   
+	<tx:annotation-driven transaction-manager="txManager" />
+	-->
+</beans>

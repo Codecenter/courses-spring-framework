@@ -11,11 +11,11 @@ Under `src/test/java` you can find `exercise1.UtilsTest` which has some tests th
 
 Under `src/test/resources` you can find `exercise1/UtilsTest-context.xml` which contains the Spring container configuration used by the JUnit test.
 
-Run the test so see the current output of the project. One of the tests may fail as the target method randomly throws an `IllegalStateException`.
+Run the test to see the current output of the project. One of the tests may fail as the target method randomly throws an `IllegalStateException`.
 
-Next your task is to apply various aspects against the interface or the implementation and see how they work in practice.
+Next, your task is to apply various aspects against the interface or the implementation and see how they work in practice.
 
-Start by adding before advice:
+Start by adding `before` advice:
 
 1. Add a new class `exercise1.aspect.Analyzer` under `src/main/java`. 
 2. Add method `doBefore(JoinPoint joinPoint)` and print something using `System.out.println`. You can study the `JoinPoint` interface and use its methods to print, for example, the name of the target method.
