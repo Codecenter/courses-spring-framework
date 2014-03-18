@@ -29,8 +29,8 @@ Your task is to create a new `BlogPostDAO` implementation `exercise2.JpaBlogPost
 1. Create a new class `exercise2.JpaBlogPostDAO` and implement `blog.dao.BlogPostDAO`. If you're not too familiar with JPA, you can copy the implementation from `solution2.JpaBlogPostDAO` as this is a not a JPA exercise.
 2. Replace the existing `blogPostDAO` bean with the new implemention in `exercise2/applicationContext.xml` under `src/main/resources`.
 3. Setup JPA in the Spring configuration by using `org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean`.
-··1. Use property `dataSource` to pass reference to the HSQLDB data source.
-··2. Set property `jpaVendorAdapter` as bean `org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter`.
+  1. Use property `dataSource` to pass reference to the HSQLDB data source.
+  2. Set property `jpaVendorAdapter` as bean `org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter`.
 4. Setup transaction management using `org.springframework.orm.jpa.JpaTransactionManager`.
 5. Bind transactions to any implementation of `blog.services.BlogService`.
 
