@@ -28,7 +28,7 @@ Finally add a new application class `exercise1.HelloClient`:
 1. Add method `public static void main(String[] args)` so that the application can be started.
 2. In the main method construct an `XmlBeanFactory` instance by calling the constructor with a `FileSystemResource` object with path `helloContext.xml`. The path is relative to the folder where the application is started (ie. the project's root folder).
 3. Using the `XmlBeanFactory` obtain the bean named "myHelloService" using `getBean`. Use [the javadoc](http://docs.spring.io/spring/docs/4.0.2.RELEASE/javadoc-api/index.html?org/springframework/beans/factory/BeanFactory.html) of the `BeanFactory` interface to find a suitable method, if necessary.
-4. If necessary, perform type cast to the `HelloService` interrface and call the `sayHello` method.
+4. If necessary, perform type cast to the `HelloService` interface and call the `sayHello` method.
 5. Make sure that `HelloClient` does not reference the actual implementation `HelloServiceImpl`, but is aware only of the interface `HelloService`.
 
 Run the application and verify that it works as intended.
@@ -79,7 +79,7 @@ The project template for the exercise contains the following classes and interfa
 
 Familiarize yourself with the classes, their contents and the interfaces they implement as next you will use them to populate a Spring container.
 
-Under `src/test/resources` you can find an empty Spring configuration file `exercise5/TestClient-context.xml`. Configure the implementation for the interface `exercise5services.LibraryService` as a bean in the Spring container. Make sure you include everything that the bean requires.
+Under `src/test/resources` you can find an empty Spring configuration file `exercise5/TestClient-context.xml`. Configure the implementation of the interface `exercise5.services.LibraryService` as a bean in the Spring container. Make sure you include everything that the bean requires.
 
 Under `src/test/java` you can find class `exercise5.TestClient` containing some JUnit test cases. Run the tests to verify that you have successfully configured the beans.
 
