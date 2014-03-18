@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<bean class="solution1.impl.UtilsImpl" />
+	
+	<bean id="myLogger" class="solution1.aspect.Logger" />
+	
+	<bean id="myAnalyzer" class="solution1.aspect.Analyzer" />
+	
+	<aop:config>
+		<aop:aspect ref="myLogger">
+			<aop:after-throwing method="logException"
+					throwing="ex" arg-names="ex"
+					pointcut="execution(* *(..))" />
+		</aop:aspect>
+
+		<aop:aspect ref="myAnalyzer">
+			<aop:before method="doBefore"
+					pointcut="this(solution1.Utils)" />
+			<aop:after-returning method="doAfterReturning"
+					arg-names="joinPoint, returnValue"
+					returning="returnValue"
+					pointcut="this(solution1.Utils)" />
+			<aop:around method="doAround"
+					pointcut="this(solution1.Utils)" />
+		</aop:aspect>
+	</aop:config>
+</beans>
