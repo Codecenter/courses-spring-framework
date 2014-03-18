@@ -7,7 +7,7 @@ This exercise contains a simple database application for managing blog posts.
 
 ![UML structure of the blog application.](https://raw.githubusercontent.com/Codecenter/courses-spring-framework/master/Mod05_DAO/uml.png)
 
-The main application class is `exercise1.BlogConsole`. It provides a simple console UI for the interface `blog.services.BlogService`. `blog.services.impl.BlogServiceImpl` implements the interface and uses `blog.dao.BlogPostDAO` for interacting the database.
+The main application class is `exercise1.BlogConsole`. It provides a simple console UI for the interface `blog.services.BlogService`. `blog.services.impl.BlogServiceImpl` implements the interface and uses `blog.dao.BlogPostDAO` for interacting with the database.
 
 The application uses an in-memory database by [HSQLDB](http://www.hsqldb.org). It is initialized by Spring using script `hsqldb-schema.sql` under `src/main/resources`. Any other database can also be used, but the schema script will probably not work without modifications.
 
@@ -22,7 +22,7 @@ Test the application by running the main application class `exercise1.BlogConsol
 Exercise 2
 ----------
 
-This exercise extends the previous one by replacing the (Spring) JDBC implementation with Java Persistence (JPA). The model class `blog.model.BlogPost` already contains the necessary annotations.
+This exercise extends the previous one by replacing the (Spring) JDBC implementation with Java Persistence API (JPA). The model class `blog.model.BlogPost` already contains the necessary annotations.
 
 Your task is to create a new `BlogPostDAO` implementation `exercise2.JpaBlogPostDAO` using JPA. 
 
