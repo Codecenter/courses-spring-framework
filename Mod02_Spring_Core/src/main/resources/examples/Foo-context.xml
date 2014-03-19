@@ -4,8 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
                            
-	<!-- Move this file to the project directory (next to pom.xml). -->                           
-                           
 	<bean id="fooBean" class="examples.FooBean">
 		<property name="intList">
 			<list>

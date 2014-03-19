@@ -12,4 +12,12 @@ public class FooBean {
 	public void setIntList(List<Integer> intList) {
 		this.intList = intList;
 	}
+	
+	public void init() {
+		System.out.println("FooBean.init");
+	}
+
+	public void destroy() {
+		System.out.println("FooBean.destroy");
+	}
 }
