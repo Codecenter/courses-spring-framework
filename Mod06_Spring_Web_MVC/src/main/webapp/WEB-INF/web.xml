@@ -9,6 +9,10 @@
 			classpath:blog/dataAccessContext-jpa.xml
 			classpath:blog/transactionContext.xml
 			/WEB-INF/dataSourceContext.xml
+
+			<!-- Example of using Spring Security:
+			/WEB-INF/securityContext.xml
+			-->
 		</param-value>
 	</context-param>
 	<listener>
@@ -21,7 +25,7 @@
         <load-on-startup>1</load-on-startup>
         <init-param>
         	<param-name>contextConfigLocation</param-name>
-        	<param-value>/WEB-INF/rest-solution1.xml</param-value>
+        	<param-value>/WEB-INF/rest-exercise1.xml</param-value>
 <!-- Replace the param-value above with the following if you want to try the solution:         	
         	<param-value>/WEB-INF/rest-solution1.xml</param-value>
 -->        	
@@ -31,4 +35,15 @@
 		<servlet-name>REST</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Example of using Spring Security:
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	-->	
 </web-app>     
