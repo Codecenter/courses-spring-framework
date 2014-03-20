@@ -14,11 +14,11 @@ public class HelloServiceImpl implements HelloService {
         return messageText;
     }
 
-    public void setMessageText(String MessageText) {
-        if (MessageText == null) {
+    public void setMessageText(String messageText) {
+        if (messageText == null) {
             throw new IllegalArgumentException("Message cannot be null");
         }
-        this.messageText = MessageText;
+        this.messageText = messageText;
     }
 
     @Override
