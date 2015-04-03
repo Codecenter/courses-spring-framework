@@ -1,3 +1,6 @@
+Exercises for JUnit and Spring
+==============================
+
 Use packages `exercise1`, `exercise2` and so on when implementing the exercises. The solutions can be found from corresponding `solution` packages, for example solutions for `exercise1` can be found in package `solution1`.
 
 Exercise 1
