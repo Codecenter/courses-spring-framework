@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="myHelloWorld" class="examples.SimpleHelloWorld" />
+
+<!-- We could easily switch the implementation by replacing the above 'bean'
+     definition with the one below:
+    <bean id="myHelloWorld" class="examples.RandomHelloWorld">
+        <constructor-arg>
+            <list>
+                <value>First hello</value>
+                <value>Second hello</value>
+                <value>Third hello</value>
+            </list>
+        </constructor-arg>
+    </bean>
+-->
+</beans>
