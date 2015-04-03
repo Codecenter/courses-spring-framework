@@ -25,7 +25,7 @@
         <load-on-startup>1</load-on-startup>
         <init-param>
         	<param-name>contextConfigLocation</param-name>
-        	<param-value>/WEB-INF/rest-solution1.xml</param-value>
+        	<param-value>/WEB-INF/rest-exercise1.xml</param-value>
 <!-- Replace the param-value above with the following if you want to try the solution:         	
         	<param-value>/WEB-INF/rest-solution1.xml</param-value>
 -->        	
