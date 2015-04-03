@@ -7,7 +7,6 @@
  */
 package solution2;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -27,22 +26,18 @@ public class JpaBlogPostDAO implements BlogPostDAO {
 
     @Override
     public List<BlogPost> getBlogPosts() throws DAOException {
-        return em.createQuery("from BlogPost order by created", BlogPost.class).getResultList();
+        return em.createQuery("from BlogPost order by created", BlogPost.class)
+                .getResultList();
     }
 
     @Override
     public List<BlogPost> getBlogPostsByDate(Date beginDate, Date endDate)
             throws DAOException {
-        TypedQuery<BlogPost> query = em.createQuery(
-                "from BlogPost "
-                    + "where created >= :beginDate and created < :endDate",
+        TypedQuery<BlogPost> query =
+            em.createQuery("from BlogPost "
+                    + "where created >= :beginDate and created <= :endDate",
                 BlogPost.class);
         query.setParameter("beginDate", beginDate, TemporalType.DATE);
-
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(endDate);
-        cal.add(Calendar.DATE, 1);
-        endDate = cal.getTime();
         query.setParameter("endDate", endDate, TemporalType.DATE);
         return query.getResultList();
     }

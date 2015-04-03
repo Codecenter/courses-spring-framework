@@ -11,8 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,6 +19,7 @@ import javax.sql.DataSource;
 
 import blog.dao.BlogPostDAO;
 import blog.dao.DAOException;
+
 import blog.model.BlogPost;
 
 public class JdbcBlogPostDAO implements BlogPostDAO {
@@ -36,7 +35,9 @@ public class JdbcBlogPostDAO implements BlogPostDAO {
         PreparedStatement stmt = null;
         try {
             conn = ds.getConnection();
-            stmt = conn.prepareStatement("select * from blog_posts order by created");
+            stmt =
+                conn.prepareStatement(
+                    "select * from blog_posts order by created");
             return queryBlogPosts(stmt);
         }
         catch (SQLException e) {
@@ -69,16 +70,11 @@ public class JdbcBlogPostDAO implements BlogPostDAO {
         PreparedStatement stmt = null;
         try {
             conn = ds.getConnection();
-            stmt = conn.prepareStatement(
-                    "select * from blog_posts "
-                        + "where created >= ? and created < ? "
-                    	+ "order by created");
+            stmt =
+                conn.prepareStatement("select * from blog_posts "
+                        + "where created >= ? and created <= ? "
+                        + "order by created");
             stmt.setDate(1, new java.sql.Date(beginDate.getTime()));
-
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(endDate);
-            cal.add(Calendar.DATE, 1);
-            endDate = cal.getTime();
             stmt.setDate(2, new java.sql.Date(endDate.getTime()));
 
             return queryBlogPosts(stmt);
@@ -113,7 +109,7 @@ public class JdbcBlogPostDAO implements BlogPostDAO {
         while (rs.next()) {
             BlogPost post = new BlogPost();
             post.setId(rs.getInt("id"));
-            post.setCreated(rs.getTimestamp("created"));
+            post.setCreated(rs.getDate("created"));
             post.setTitle(rs.getString("title"));
             post.setMessage(rs.getString("message"));
             results.add(post);
@@ -127,11 +123,11 @@ public class JdbcBlogPostDAO implements BlogPostDAO {
         PreparedStatement stmt = null;
         try {
             conn = ds.getConnection();
-            stmt = conn.prepareStatement(
+            stmt =
+                conn.prepareStatement(
                     "insert into blog_posts(created, title, message) "
                         + "values(?, ?, ?)");
-            stmt.setTimestamp(1, new Timestamp(
-                    newPost.getCreated().getTime()));
+            stmt.setDate(1, new java.sql.Date(newPost.getCreated().getTime()));
             stmt.setString(2, newPost.getTitle());
             stmt.setString(3, newPost.getMessage());
             stmt.executeUpdate();
@@ -165,8 +161,7 @@ public class JdbcBlogPostDAO implements BlogPostDAO {
         PreparedStatement stmt = null;
         try {
             conn = ds.getConnection();
-            stmt = conn.prepareStatement(
-                    "delete from blog_posts where id = ?");
+            stmt = conn.prepareStatement("delete from blog_posts where id = ?");
             stmt.setInt(1, id);
             return stmt.executeUpdate() == 1;
         }

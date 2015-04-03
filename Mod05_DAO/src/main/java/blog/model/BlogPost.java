@@ -13,11 +13,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "blog_posts")
 public class BlogPost {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Integer id;
     private Date created;
     private String title;
@@ -31,6 +34,7 @@ public class BlogPost {
         this.id = id;
     }
 
+    @Temporal(TemporalType.DATE)
     public Date getCreated() {
         return created;
     }
