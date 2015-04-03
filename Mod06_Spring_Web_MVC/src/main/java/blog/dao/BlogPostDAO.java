@@ -7,7 +7,6 @@
  */
 package blog.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import blog.model.BlogPost;
@@ -18,7 +17,6 @@ public interface BlogPostDAO {
      * database.
      *
      * @return a <code>List</code> containing <code>BlogPost</code>s
-     * @throws DAOException is thrown in case of a database error.
      */
     List<BlogPost> getBlogPosts();
 
@@ -27,7 +25,6 @@ public interface BlogPostDAO {
      *
      * @param id an <code>int</code> identifying the <code>BlogPost</code>
      * @return a <code>BlogPost</code> containing the post
-     * @throws DAOException is thrown in case of a database error.
      */
     BlogPost getBlogPost(int id);
 
@@ -35,7 +32,7 @@ public interface BlogPostDAO {
      * Stores the <code>BlogPost</code> in the database.
      *
      * @param post a <code>BlogPost</code>
-     * @throws DAOException is thrown in case of a database error.
+     * @return a <code>BlogPost</code> that has been stored in the database.
      */
     BlogPost storeBlogPost(BlogPost post);
 
@@ -43,9 +40,6 @@ public interface BlogPostDAO {
      * Deletes the specified <code>BlogPost</code> from the database.
      *
      * @param id an <code>int</code> identifying the <code>BlogPost</code>
-     * @return a <code>boolean</code> whether or not the operation was
-     *         successful
-     * @throws DAOException is thrown in case of a database error.
      */
     void deleteBlogPost(int id);
 }

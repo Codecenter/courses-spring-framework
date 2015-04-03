@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import blog.dao.BlogPostDAO;
+
 import blog.model.BlogPost;
 
 public class JpaBlogPostDAO implements BlogPostDAO {
@@ -21,13 +22,15 @@ public class JpaBlogPostDAO implements BlogPostDAO {
 
     @Override
     public List<BlogPost> getBlogPosts() {
-        return em.createQuery("from BlogPost order by created", BlogPost.class).getResultList();
+        return em.createQuery("from BlogPost order by created", BlogPost.class)
+                .getResultList();
     }
 
     @Override
     public BlogPost getBlogPost(int id) {
         return em.createQuery("from BlogPost where id = :id", BlogPost.class)
-        		.setParameter("id", id).getSingleResult();
+                .setParameter("id", id)
+                .getSingleResult();
     }
 
     @Override
