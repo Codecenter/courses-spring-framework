@@ -44,7 +44,7 @@ Finally, add a new application class `exercise1.HelloClient`:
    The path is relative to the folder where the application is started (ie. 
    the project's root folder).
 3. Using the `XmlBeanFactory` obtain the bean named "myHelloService" using 
-   `getBean`. Use [the javadoc](http://docs.spring.io/spring/docs/4.0.2.RELEASE/javadoc-api/index.html?org/springframework/beans/factory/BeanFactory.html) 
+   `getBean`. Use [the javadoc](http://docs.spring.io/spring/docs/current/javadoc-api/index.html?org/springframework/beans/factory/BeanFactory.html) 
    of the `BeanFactory` interface to find a suitable method, if necessary.
 4. If necessary, perform type cast to the `HelloService` interface and call the 
    `sayHello` method.
@@ -123,7 +123,7 @@ the beans.
 
 If this was too easy, replace the XML configuration with Java-based container 
 configuration. You can find more information in 
-[the reference documentation](http://docs.spring.io/spring/docs/4.0.2.RELEASE/spring-framework-reference/htmlsingle/#beans-java-basic-concepts).
+[the reference documentation](http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-java-basic-concepts).
 
 If you still have time on your hands, create new DAOs using in-memory data 
 structures such as a `java.util.Map` and populate them using Spring 
